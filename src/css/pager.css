@@ -1,0 +1,64 @@
+/*分页*/
+.xb-pagination {
+  font-size: 14px;
+  padding-right: 1px;
+}
+.xb-pagination .page-numtext {
+  float: left;
+  font-size: 12px;
+  line-height: 30px;
+}
+.xb-pagination.hasborder span {
+  border-color: #555555 ;
+}
+.xb-pagination span {
+  line-height: 38px;
+  border: 1px solid #555555;
+  margin-right: -1px;
+  display: inline-block;
+  padding: 0 15px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  background: #000;
+}
+.xb-pagination span:hover {
+  color: #fff;
+  cursor: pointer;
+}
+.xb-pagination span.disabled:hover {
+  cursor: not-allowed;
+  color: #fff;
+}
+.xb-pagination.linepage span {
+  border-color: #cbae0c  !important;
+}
+.xb-pagination .pre,
+.xb-pagination .next {
+  width: 100px;
+  padding: 0;
+}
+.xb-pagination .num {
+  width: auto;
+  min-width: 28px;
+  padding: 0 5px;
+}
+.xb-pagination .num.active {
+  border-color: #cbae0c;
+  color: #fff;
+  cursor: default;
+  z-index: 1;
+}
+.xb-pagination .pre.disabled {
+  color: #fff;
+}
+.xb-pagination .pre.disabled:hover {
+  cursor: not-allowed;
+}
+.xb-pagination .next.disabled {
+  color: #fff;
+}
+.xb-pagination .next.disabled:hover {
+  cursor: not-allowed;
+}
+/*分页 end*/

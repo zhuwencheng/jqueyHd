@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel=icon href=//new.xubei.com/images/favicon.ico>
+    <title>绝地求生租个号-虚贝网，专业的游戏平台</title>
+    <link rel="stylesheet" href="./css/basic.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/pager.css">
+</head>
+
+<body class="list">
+    <div class="w1200 top-nav">
+        <div class="t-r-nav">
+            <a href="./index.html">活动首页</a>
+            <a href="./list.html" class="b02">绝地求生租号订单</a>
+            <p>
+                <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA1NTM3MF80ODA5MDJfODAwMDU1MzcwXzJf" target="_blank" class="kf">在线客服：800055370</a>
+            </p>
+        </div>
+        <a href="http://www.xubei.com?channel=ygx" class="logo"></a>
+    </div>
+    <div class="w1200 list-tb">
+        <div class="user-info">
+            <span class="us"></span>
+            <span class="signOut">退出登录</span>
+        </div>
+        <table>
+            <tbody id="list-content">
+            </tbody>
+
+        </table>
+        <div class="xb-pagination t-r">
+            <div class="page-numtext" style="display: none;">当前第1页/共422页，共8430条记录，每页20条</div>
+            <span class="first disabled" data-index="1">首页</span>
+            <span class="pre disabled" data-index="1">上一页</span>
+            <span class="num active" data-index="1">1</span>
+            <span class="num" data-index="2">2</span>
+            <span class="num" data-index="3">3</span>
+            <span class="num" data-index="4">4</span>
+            <span class="num" data-index="5">5</span>
+            <span class="next" data-index="2">下一页</span>
+            <span class="last" data-index="422">末页</span>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright © 2015-2016 杭州诸相网络科技有限公司 (www.xubei.com) 版权所有 浙ICP备15021515号-1 浙公网安备 33010802003650号
+        <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA1NTM3MF80ODA5MDJfODAwMDU1MzcwXzJf" target="_blank">在线客服：800055370</a>
+    </div>
+</body>
+<!-- 维权弹窗 -->
+<script type="text/template" id="wq-dialog">
+    <div class="form-dlg">
+        <div class="form-group">
+            <label for="">订单编号：</label>
+            <span>{{id}}</span>
+        </div>
+        <div class="form-group">
+            <label for="">维权理由：</label>
+            <div class="xb-c-select" id="rights-reason">
+                <span data-val="0" placeholder="请选择">请选择</span>
+                <em></em>
+                <ul>
+                     <li data-val="10">异地或锁定导致无法登陆</li>
+                     <li data-val="8">账号在线或顶号导致无法正常游戏</li>
+                     <li data-val="11">账号信息与描述不符</li>
+                     <li data-val="7">密码错误导致无法登陆</li>
+                     <li data-val="4">账号被封</li>
+                     <li data-val="26">虚贝百宝箱异常</li>
+                     <li data-val="0">其他问题</li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="">详细理由：</label>
+            <textarea id="rights-protection"></textarea>
+        </div>
+        
+        <div class="form-group mgt-30">
+            <p class="l-w"><span class="sub-btn sub-sqwq-btn" data-id="{{id}}">提交</span></p>
+        </div>
+        <div class="form-group"><label class="f12 yellor t-r">注意：</label>
+            <p class="l-w f12 yellor error">1.由于加速器商品特殊性，暂不支持退款，烦请根据实际需求租赁。</p>
+            <p class="l-w f12 yellor error">2.您有一次申请维权的机会，申请维权之后，将无法使用此订单的账号进行游戏</p>
+        </div>
+    </div>
+</script>
+<!-- 维权中弹窗 -->
+<script type="text/template" id="wq-c-dialog">
+    <div class="form-dlg">
+        <p class="f18 b">客服 <span class="yellor">正在处理中</span>，请您耐心等待...</p>
+        <div class="form-group mgt-20">
+            <label for="">订单编号：</label>
+            <span>{{order_no}}</span>
+        </div>
+        <div class="form-group">
+            <label for="">维权理由：</label>
+            <span>{{right_reason_text}}</span>
+            <span class="fr c-666">{{create_time}}</span>
+        </div>
+        <div class="form-group">
+            <label for="">详细理由：</label>
+            <span>{{rights_protection}}</span>
+        </div>
+        
+        <div class="form-group mgt-30">
+            <p class="l-w"><span class="sub-btn cxwq-btn" data-orderno="{{order_no}}">撤销维权</span></p>
+        </div>
+    </div>
+</script>
+<!-- 维权成功弹窗 -->
+<script type="text/template" id="wq-e-dialog">
+    <div class="form-dlg l-label">
+            {{if arbitrate_state===2}}<p class="f18 b"><span class="yellor">维权成功！</span>24小时将退款</p>{{/if}}
+            {{if arbitrate_state===1}}<p class="f18 b"><span class="yellor">维权失败</span>，无退款</p>{{/if}}
+            {{if arbitrate_state===3}}<p class="f18 b"><span class="yellor">维权已撤销！</span></p>{{/if}}
+        <div class="form-group mgt-20">
+            <span class="fr c-666">{{detail_create_time}}</span>
+            <label for="">客服处理结果：</label>
+            <span>{{deal_result_text}}</span>
+        </div>
+        <div class="form-group">
+            <label for="">详细理由：</label>
+            <span>{{deal_description}}</span>
+        </div>
+        <hr/>
+        <div class="form-group mgt-20">
+            <label for="">买家维权理由：</label>
+            <span>{{right_reason_text}}</span>
+            <span class="fr c-666">{{create_time}}</span>
+        </div>
+        <div class="form-group">
+            <label for="">详细理由：</label>
+            <span>{{rights_protection}}</span>
+        </div>
+        <hr/>
+        <p>退款金额：<span class="f16 b yellor">{{real_refund_amount?real_refund_amount.toFixed(2):'0.00'}}</span>元</p>
+    </div>
+</script>
+<script type="text/template" id="list_tem">
+    <tr>
+        <th style="width: 15%">登陆码</th>
+        <th style="width: 15%">下单时间</th>
+        <th style="width: 8%">商品名称</th>
+        <th style="width: 8%">租赁时长</th>
+        <th style="width: 6%">商品租金</th>
+        <th style="width: 6%">商品押金</th>
+        <th style="width: 6%">加速租金</th>
+        <th style="width: 6%">支付金额</th>
+        <th style="width: 10%">订单状态</th>
+        <th style="width: 14%">操作</th>
+    </tr>
+    {{each list as item i}} 
+        <tr>
+            <td>{{item.order_no}}</td>
+            <td>{{item.create_time}}</td>
+            <td>{{item.game_name}}</td>
+            <td>{{item.hours}}小时</td>
+            <td>￥{{item.amount}}.00</td>
+            <td>￥0.00</td>
+            <td>￥{{item.booster_amount||0}}.00</td>
+            <td>￥{{item.amount+(item.booster_amount||0)}}.00</td>
+            <td>{{item.order_status_text}}</td>
+            {{if item.order_status===2&&item.is_arb!=="1"}}<td class="br-0 tool sqwq-btn" data-orderno="{{item.order_no}}">申请维权</td>{{/if}}
+            {{if item.order_status===7||item.order_status===3||item.order_status===100}}<td class="br-0 tool"></td>{{/if}}
+            {{if item.order_status===4}}<td class="br-0 tool ckwq-btn" data-orderno="{{item.order_no}}">维权详情</td>{{/if}}
+            {{if item.order_status===5}}<td class="br-0 tool ckwq-btn" data-orderno="{{item.order_no}}">维权详情</td>{{/if}}
+            {{if item.order_status===6}}<td class="br-0 tool ckwq-btn" data-orderno="{{item.order_no}}">维权详情</td>{{/if}}
+            {{if item.is_arb==="1"&&item.order_status===2}}<td class="br-0 tool ckwq-btn" data-orderno="{{item.order_no}}">维权详情</td>{{/if}}
+        </tr>
+    {{/each}}
+</script>
+<script src="./js/lib/jquery-1.9.1.min.js"></script>
+<script src="./js/lib/jquery.cookie.min.js"></script>
+<script src="./js/lib/template.js"></script>
+<script src="./js/lib/xb-pager.js"></script>
+<script src="./js/lib/layer/layer.js"></script>
+<script src="./js/list.js"></script>
+
+</html>
